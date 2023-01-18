@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProyectosVS.2022\\CINE-Nvo-08-01\\CINE-FrontEnd\\CINE-FrontEnd.csproj",
+      "projectUniqueName": "C:\\ProyectosVS.2022\\CINE-Nvo-08-01\\CINE-Nvo-08-01\\CINE-FrontEnd\\CINE-FrontEnd.csproj",
       "projectName": "CINE-FrontEnd",
-      "projectPath": "C:\\ProyectosVS.2022\\CINE-Nvo-08-01\\CINE-FrontEnd\\CINE-FrontEnd.csproj",
+      "projectPath": "C:\\ProyectosVS.2022\\CINE-Nvo-08-01\\CINE-Nvo-08-01\\CINE-FrontEnd\\CINE-FrontEnd.csproj",
       "packagesPath": "C:\\Users\\Leonel\\.nuget\\packages\\",
-      "outputPath": "C:\\ProyectosVS.2022\\CINE-Nvo-08-01\\CINE-FrontEnd\\obj\\",
+      "outputPath": "C:\\ProyectosVS.2022\\CINE-Nvo-08-01\\CINE-Nvo-08-01\\CINE-FrontEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Leonel\\AppData\\Roaming\\NuGet\\NuGet.Config",

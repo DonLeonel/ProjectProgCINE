@@ -10,3 +10,15 @@ C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.dl
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\refint\CINE-BackEnd.dll
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.pdb
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\ref\CINE-BackEnd.dll
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\bin\Debug\net6.0\CINE-BackEnd.deps.json
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\bin\Debug\net6.0\CINE-BackEnd.dll
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\bin\Debug\net6.0\CINE-BackEnd.pdb
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.csproj.AssemblyReference.cache
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.AssemblyInfoInputs.cache
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.AssemblyInfo.cs
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.csproj.CoreCompileInputs.cache
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.dll
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\refint\CINE-BackEnd.dll
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\CINE-BackEnd.pdb
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-BackEnd\obj\Debug\net6.0\ref\CINE-BackEnd.dll
