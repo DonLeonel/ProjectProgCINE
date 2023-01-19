@@ -1,12 +1,19 @@
+using CINE_BackEnd.Services;
+using CINE_BackEnd.Services.Interfaz;
 using System.Runtime.InteropServices;
 
 namespace CINE_FrontEnd
 {
     public partial class MenuPrincipal : Form
     {
+        private IService Service;
+        private FactoryServiceABS Factory;
+        
         public MenuPrincipal()
         {
             InitializeComponent();
+            Factory = new FactoryServiceIMP();
+            Service = Factory.GetService();
         }      
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,7 +71,7 @@ namespace CINE_FrontEnd
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void AbrirFormInPanel(object formHijo) //Para poder abrir otros formularios dentro de el Panel Contenedor
+        public void AbrirFormInPanel(object formHijo) //Para poder abrir otros formularios dentro de el Panel Contenedor
         {
             if (this.PanelContenedor.Controls.Count > 0)
             {
@@ -80,7 +87,7 @@ namespace CINE_FrontEnd
 
         private void btnPeliculas_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new FormPeliculas());
+            AbrirFormInPanel(new FormPeliculas(this.Service));
         }
     }
 }

@@ -4,24 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Models
+namespace CINE_BackEnd.Models
 {
-    internal class Pelicula
+    public class Pelicula
     {
         public int Id_pelicula { get; set; }  //Identity
         public string Titulo { get; set; }
         public string Sinopsis { get; set; }
         public DateTime FechaEstreno { get; set; }
         public string Elenco { get; set; }
-        public decimal Duracion { get; set; }
+        public float Duracion { get; set; }
         public Calificacion Calificacion { get; set; }
-        public bool AptoTodoPublico { get; set; }
+        public int AptoTodoPublico { get; set; }
         public string Idioma { get; set; }       
-        public bool Subtitulo { get; set; }
+        public int Subtitulo { get; set; }
         public Origen Origen { get; set; }
         public Genero Genero { get; set; }
 
-        public Pelicula(int id_pelicula, string titulo, string sinopsis, DateTime fecha_estreno, string elenco, decimal duracion, Calificacion calificacion, bool apto_todo_publico, string idioma, bool subtitulo, Origen origen, Genero genero)
+        public Pelicula(int id_pelicula, string titulo, string sinopsis, DateTime fecha_estreno, string elenco, float duracion, Calificacion calificacion, int apto_todo_publico, string idioma, int subtitulo, Origen origen, Genero genero)
         {
             Id_pelicula = id_pelicula;
             Titulo = titulo;

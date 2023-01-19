@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Models
+namespace CINE_BackEnd.Models
 {
-    internal class DetalleReserva
+    public class DetalleReserva
     {
         public int IdDetalleReserva { get; set; }        
         public Funcion Funcion { get; set; }

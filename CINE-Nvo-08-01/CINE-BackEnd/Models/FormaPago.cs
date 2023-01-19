@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Models
+namespace CINE_BackEnd.Models
 {
-    internal class FormaPago
+    public class FormaPago
     {
         public int IdFormaPago { get; set; }
         public string Descripcion { get; set; }

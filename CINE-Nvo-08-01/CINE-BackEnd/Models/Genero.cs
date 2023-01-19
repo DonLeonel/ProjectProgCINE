@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Models
+namespace CINE_BackEnd.Models
 {
-    internal class Genero
+    public class Genero
     {
         public int Id_genero { get; set; }
         public string Descripcion { get; set; }

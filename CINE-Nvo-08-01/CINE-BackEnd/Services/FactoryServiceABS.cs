@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CINE_BackEnd.Services
 {
-    internal abstract class FactoryServiceABS
+    public abstract class FactoryServiceABS
     {
         public abstract IService GetService();
     }

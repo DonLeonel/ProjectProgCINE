@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Models
+namespace CINE_BackEnd.Models
 {
-    internal class Origen
+    public class Origen
     {
         public int IdOrigen { get; set; }
         public string Descripcion { get; set; }

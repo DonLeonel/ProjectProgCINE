@@ -1,4 +1,4 @@
-﻿using CINEApp_BackEnd.Models;
+﻿using CINE_BackEnd.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Data
+namespace CINE_BackEnd.Data
 {
     internal class HelperSing
     {
@@ -16,7 +16,7 @@ namespace CINEApp_BackEnd.Data
 
         private HelperSing()
         {
-            string cadena = "";
+            string cadena = @"Data Source=DESKTOP-0L0DMBQ\SQLEXPRESS;Initial Catalog=CineTUP_Oficial;Integrated Security=True";
             cnn = new SqlConnection(cadena);
         }
 
@@ -76,6 +76,34 @@ namespace CINEApp_BackEnd.Data
             }
         } //Creo que no Hace falta mas
 
+        public bool InsertPeliculas(string SP,Pelicula peli)
+        {
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(SP,cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@titulo", peli.Titulo);
+                cmd.Parameters.AddWithValue("@sinopsis", peli.Sinopsis);
+                cmd.Parameters.AddWithValue("@fec_estreno", peli.FechaEstreno);
+                cmd.Parameters.AddWithValue("@elenco", peli.Elenco);
+                cmd.Parameters.AddWithValue("@duracion", peli.Duracion);
+                cmd.Parameters.AddWithValue("@calificacion", peli.Calificacion.IdCalif);
+                cmd.Parameters.AddWithValue("@apta_todo_publico", peli.AptoTodoPublico);
+                cmd.Parameters.AddWithValue("@idioma", peli.Idioma);
+                cmd.Parameters.AddWithValue("@subtitulo", peli.Subtitulo);
+                cmd.Parameters.AddWithValue("@origen", peli.Origen.IdOrigen);
+                cmd.Parameters.AddWithValue("@genero", peli.Genero.Id_genero);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        } //Creo que no Hace falta mas
+
         public bool InsertDB(string SP, List<Parametro> lst) 
         { 
             try
@@ -97,7 +125,7 @@ namespace CINEApp_BackEnd.Data
             }
         }
 
-        public bool InsertarReserva(string SPM,string SPD, Reserva reserva)
+        public bool InsertReserva(string SPM,string SPD, Reserva reserva)
         {
             SqlTransaction t = null;
             try
@@ -143,7 +171,7 @@ namespace CINEApp_BackEnd.Data
             }
         }
 
-        public bool InsertarFactura(string SPM, string SPD, Factura factura)
+        public bool InsertFactura(string SPM, string SPD, Factura factura)
         {
             SqlTransaction t = null;
             try

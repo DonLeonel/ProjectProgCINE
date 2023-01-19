@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CINE_BackEnd.Services
 {
-    internal class FactoryServiceIMP : FactoryServiceABS
+    public class FactoryServiceIMP : FactoryServiceABS
     {
         public override IService GetService()
         {

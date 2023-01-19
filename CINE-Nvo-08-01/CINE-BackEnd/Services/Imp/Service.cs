@@ -1,16 +1,17 @@
-﻿using CINE_BackEnd.Services.Interfaz;
-using CINEApp_BackEnd.Data.Imp;
-using CINEApp_BackEnd.Data.Interfaz;
-using CINEApp_BackEnd.Models;
+﻿using CINE_BackEnd.Data.Imp;
+using CINE_BackEnd.Data.Interfaz;
+using CINE_BackEnd.Models;
+using CINE_BackEnd.Services.Interfaz;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CINE_BackEnd.Services.Imp
 {
-    internal class Service : IService
+    public class Service : IService
     {
         private IDAO oDAO;
         
@@ -19,9 +20,9 @@ namespace CINE_BackEnd.Services.Imp
             oDAO = new Dao();
         }
 
-        public bool EjecutarInsertPeliculas(Pelicula pelicula)
+        public bool InsertPeliculas(Pelicula pelicula)
         {
-            return oDAO.EjecutarInsertPeliculas(pelicula);
+            return oDAO.InsertPeliculas(pelicula);
         }
 
         public List<Cliente> GetClientes()
@@ -72,6 +73,11 @@ namespace CINE_BackEnd.Services.Imp
         public bool UpdateCliente(Cliente cliente)
         {
             return oDAO.UpdateCliente(cliente);
+        }
+
+        public DataTable Get(string sp)
+        {
+            return oDAO.Get(sp);
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using CINEApp_BackEnd.Data.Interfaz;
-using CINEApp_BackEnd.Models;
+﻿using CINE_BackEnd.Data.Interfaz;
+using CINE_BackEnd.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Data.Imp
+namespace CINE_BackEnd.Data.Imp
 {
     internal class Dao : IDAO
     {
-        public bool EjecutarInsertPeliculas(Pelicula pelicula)
+        public bool InsertPeliculas(Pelicula pelicula)
         {
-            throw new NotImplementedException();
+           return HelperSing.Instance.InsertPeliculas("SP_INSERT_PELICULA",pelicula);
         }
 
         public List<Cliente> GetClientes()
@@ -67,25 +67,27 @@ namespace CINEApp_BackEnd.Data.Imp
             foreach (DataRow dr in dt.Rows)
             {
                 Calificacion c = new Calificacion();
-                c.Descripcion = (string)dr[5];
-                
-                Origen o = new Origen();
-                o.Descripcion = (string)dr[8];
+                c.Descripcion = (string)dr[6];
 
                 Genero g = new Genero();
-                g.Descripcion = (string)dr[9];
+                g.Descripcion = (string)dr[10];
 
+                Origen o = new Origen();
+                o.Descripcion = (string)dr[11];
+                
                 Pelicula p = new Pelicula();
                 p.Id_pelicula = (int)dr[0];
                 p.Titulo = (string)dr[1];
                 p.Sinopsis = (string)dr[2];
                 p.FechaEstreno = (DateTime)dr[3];
                 p.Elenco = (string)dr[4];
-                p.Calificacion = c; //5
-                p.AptoTodoPublico = (bool)dr[6];
-                p.Subtitulo = (bool)dr[7];
-                p.Origen = o; //8
-                p.Genero = g; //9
+                //p.Duracion = (float)dr[5];
+                p.Calificacion = c; //6
+                p.AptoTodoPublico = Convert.ToInt32(dr[7]);
+                p.Idioma = (string)dr[8];
+                p.Subtitulo = Convert.ToInt32(dr[9]);
+                p.Genero = g; //10
+                p.Origen = o; //11
                 lPeli.Add(p);                
             }
             return lPeli;
@@ -113,7 +115,7 @@ namespace CINEApp_BackEnd.Data.Imp
 
         public bool InsertFactura(Factura factura)
         {
-            return HelperSing.Instance.InsertarFactura("SP_INSERT_FACTURA","SP_INSERT_DET_FACTURA",factura);
+            return HelperSing.Instance.InsertFactura("SP_INSERT_FACTURA","SP_INSERT_DET_FACTURA",factura);
 
         }
 
@@ -131,7 +133,7 @@ namespace CINEApp_BackEnd.Data.Imp
 
         public bool InsertReserva(Reserva reserva)
         {
-            return HelperSing.Instance.InsertarReserva("SP_INSERT_RESERVA", "SP_INSERT_DET_RESERVA", reserva);
+            return HelperSing.Instance.InsertReserva("SP_INSERT_RESERVA", "SP_INSERT_DET_RESERVA", reserva);
         }
 
         public bool UpdateCliente(Cliente cliente)
@@ -143,6 +145,11 @@ namespace CINEApp_BackEnd.Data.Imp
             lst.Add(new Parametro("@fec_nac", cliente.FechaNac));
 
             return HelperSing.Instance.InsertDB("SP_UPDATE_CLIENTE", lst);
+        }
+
+        public DataTable Get(string sp)
+        {
+            return HelperSing.Instance.ConsultarDB(sp);
         }
     }
 }

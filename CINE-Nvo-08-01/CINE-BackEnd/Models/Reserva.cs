@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Models
+namespace CINE_BackEnd.Models
 {
-    internal class Reserva
+    public class Reserva
     {
         public int Id_reserva { get; set; }
         public DateTime FechaReserva { get; set; }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Models
+namespace CINE_BackEnd.Models
 {
-    internal class Factura
+    public class Factura
     {
         public int IdFactura { get; set; }
         public DateTime Fecha { get; set; }

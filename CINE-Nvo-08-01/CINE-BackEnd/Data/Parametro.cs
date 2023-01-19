@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CINEApp_BackEnd.Data
+namespace CINE_BackEnd.Data
 {
     internal class Parametro
     {
