@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Forms\FormAltaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormAltaFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\FormAltaPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormFunciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FormPeliculas.cs">

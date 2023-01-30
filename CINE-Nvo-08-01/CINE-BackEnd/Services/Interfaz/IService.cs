@@ -22,5 +22,9 @@ namespace CINE_BackEnd.Services.Interfaz
         bool InsertFuncion(Funcion funcion);
         bool InsertPeliculas(Pelicula pelicula);
         bool UpdateCliente(Cliente cliente);
+        bool UpdatePelicula(Pelicula pelicula);
+        bool UpdateFuncion(Funcion funcion);
+        bool DeletePelicula(int Id);
+
     }
 }

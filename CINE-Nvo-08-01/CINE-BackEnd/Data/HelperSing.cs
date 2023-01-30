@@ -104,12 +104,12 @@ namespace CINE_BackEnd.Data
             }
         } //Creo que no Hace falta mas
 
-        public bool InsertDB(string SP, List<Parametro> lst) 
+        public bool ActualizarDB(string SP, List<Parametro> lst) 
         { 
             try
             {
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand(SP);
+                SqlCommand cmd = new SqlCommand(SP,cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 foreach (Parametro p in lst)
                 {

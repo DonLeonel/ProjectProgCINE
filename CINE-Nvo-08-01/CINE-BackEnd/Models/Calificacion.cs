@@ -21,5 +21,10 @@ namespace CINE_BackEnd.Models
         {
 
         }
+
+        public override string ToString()
+        {
+            return Descripcion.ToString();
+        }
     }
 }

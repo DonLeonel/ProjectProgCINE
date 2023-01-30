@@ -10,8 +10,8 @@ namespace CINE_BackEnd.Data.Interfaz
 {
     internal interface IDAO
     {
-        List<Cliente> GetClientes();
         DataTable Get(string sp);
+        List<Cliente> GetClientes();
         List<Funcion> GetFunciones();
         List<Reserva> GetReservas();
         List<Pelicula> GetPeliculas();
@@ -22,6 +22,9 @@ namespace CINE_BackEnd.Data.Interfaz
         bool InsertFuncion(Funcion funcion);
         bool InsertPeliculas(Pelicula pelicula);
         bool UpdateCliente(Cliente cliente);
+        bool UpdatePelicula(Pelicula pelicula);
+        bool UpdateFuncion(Funcion funcion);
+        bool DeletePelicula(int Id);
         
     }
 }

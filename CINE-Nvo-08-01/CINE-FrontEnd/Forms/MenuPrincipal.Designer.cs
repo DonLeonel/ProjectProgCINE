@@ -85,6 +85,7 @@
             this.btnClientes.TabIndex = 3;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnPeliculas
             // 
@@ -119,6 +120,7 @@
             this.btnFunciones.TabIndex = 0;
             this.btnFunciones.Text = "Funciones";
             this.btnFunciones.UseVisualStyleBackColor = false;
+            this.btnFunciones.Click += new System.EventHandler(this.btnFunciones_Click);
             // 
             // PanelHorizontal
             // 

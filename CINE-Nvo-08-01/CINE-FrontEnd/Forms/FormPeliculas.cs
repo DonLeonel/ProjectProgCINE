@@ -39,12 +39,17 @@ namespace CINE_FrontEnd
         }
 
         private void btnNvaPelicula_Click_1(object sender, EventArgs e)
-        {            
+        {
+            OcultarComponentes();
+            AbrirFormInPanel(new FormAltaPelicula(this.Service, lPeliculas));            
+        }
+
+        private void OcultarComponentes()
+        {
             btnNvaPelicula.Visible = false;
             dgvPeliculas.Dispose();
             btnEditar.Visible = false;
             btnBorrar.Visible = false;
-            AbrirFormInPanel(new FormAltaPelicula(this.Service, lPeliculas));            
         }
 
         private void FormPeliculas_Load(object sender, EventArgs e)
@@ -56,6 +61,40 @@ namespace CINE_FrontEnd
         {
             lPeliculas = Service.GetPeliculas();
             dgvPeliculas.DataSource = lPeliculas;
+            dgvPeliculas.Columns[0].Visible = false;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int IdPeli = (int)dgvPeliculas.CurrentRow.Cells[0].Value;
+            
+            if (!IdPeli.Equals(-1) || !IdPeli.Equals(null))
+            {
+                OcultarComponentes();
+                AbrirFormInPanel(new FormAltaPelicula(this.Service, lPeliculas, IdPeli));
+            }
+            else
+            {
+                MessageBox.Show("ERROR, indice fuera de rango!, debe seleccionar la pelicula a Editar.", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            int IdPeli = (int)dgvPeliculas.CurrentRow.Cells[0].Value;
+            if (MessageBox.Show("Esta seguro que quiere dar de baja esta pelicula? (borrado logico).", "CONTROL", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2).Equals(DialogResult.Yes))
+            {
+                if (Service.DeletePelicula(IdPeli))
+                {
+                    MessageBox.Show($"Se borro con exito la pelicula", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDgv();
+                }
+                else
+                {
+                    MessageBox.Show("ERROR, No se pudo borrar la Pelicula ", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+            }
         }
     }
 }

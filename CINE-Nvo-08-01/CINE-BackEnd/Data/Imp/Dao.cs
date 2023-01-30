@@ -28,6 +28,10 @@ namespace CINE_BackEnd.Data.Imp
                 c.Nombre = (string)dr[1];
                 c.Apellido = (string)dr[2];
                 c.FechaNac = (DateTime)dr[3];
+                c.Calle = (string)dr[4];
+                c.Altura = (int)dr[5];
+                c.Telefono = (string)dr[6];
+                c.Mail = (string)dr[7];
                 lClient.Add(c);
             }
             return lClient;
@@ -40,20 +44,21 @@ namespace CINE_BackEnd.Data.Imp
             foreach (DataRow dr in dt.Rows)
             {
                 Pelicula p = new Pelicula();
-                p.Titulo = (string)dr[4];
+                p.Id_pelicula = (int)dr[1];
+                p.Titulo = (string)dr[6];
 
                 Sala s = new Sala();
-                s.IdSala = (int)dr[5];
-                s.Tipo = (string)dr[6];
+                s.IdSala = (int)dr[2];
+                s.Tipo = (string)dr[7];
 
                 Funcion f = new Funcion();
                 f.IdFuncion = (int)dr[0];
-                f.Fecha = (DateTime)dr[1];
-                f.HoraInicio = (DateTime)dr[2];
-                f.Precio = (double)dr[3];
+                f.Fecha = (DateTime)dr[3];
+                f.HoraInicio = (DateTime)dr[4];
+                f.Precio = (double)dr[5];
                 f.Pelicula = p;
                 f.Sala = s;
-                f.Agotado = (bool)dr[7];
+                f.Agotado = (bool)dr[8];
 
                 lFuncion.Add(f);
             }
@@ -109,8 +114,12 @@ namespace CINE_BackEnd.Data.Imp
             lst.Add(new Parametro("@nombre", cliente.Nombre));
             lst.Add(new Parametro("@apellido", cliente.Apellido));
             lst.Add(new Parametro("@fec_nac", cliente.FechaNac));
+            lst.Add(new Parametro("@calle", cliente.Calle));
+            lst.Add(new Parametro("@altura", cliente.Altura));
+            lst.Add(new Parametro("@telefono", cliente.Telefono));
+            lst.Add(new Parametro("@mail", cliente.Mail));
 
-            return HelperSing.Instance.InsertDB("SP_INSERT_CLIENTE", lst);
+            return HelperSing.Instance.ActualizarDB("SP_INSERT_CLIENTE", lst);
         }
 
         public bool InsertFactura(Factura factura)
@@ -125,10 +134,10 @@ namespace CINE_BackEnd.Data.Imp
             lst.Add(new Parametro("@fecha", funcion.Fecha));
             lst.Add(new Parametro("@hora_inicio", funcion.HoraInicio));
             lst.Add(new Parametro("@precio", funcion.Precio));
-            lst.Add(new Parametro("@id_pelicula", funcion.Pelicula.Id_pelicula));
+            lst.Add(new Parametro("@id_peli", funcion.Pelicula.Id_pelicula));
             lst.Add(new Parametro("@id_sala", funcion.Sala.IdSala));
             
-            return HelperSing.Instance.InsertDB("SP_INSERT_FUNCION", lst);
+            return HelperSing.Instance.ActualizarDB("SP_INSERT_FUNCION", lst);
         }
 
         public bool InsertReserva(Reserva reserva)
@@ -143,13 +152,57 @@ namespace CINE_BackEnd.Data.Imp
             lst.Add(new Parametro("@nombre", cliente.Nombre));
             lst.Add(new Parametro("@apellido", cliente.Apellido));
             lst.Add(new Parametro("@fec_nac", cliente.FechaNac));
+            lst.Add(new Parametro("@calle", cliente.Calle));
+            lst.Add(new Parametro("@altura", cliente.Altura));
+            lst.Add(new Parametro("@telefono", cliente.Telefono));
+            lst.Add(new Parametro("@mail", cliente.Mail));
 
-            return HelperSing.Instance.InsertDB("SP_UPDATE_CLIENTE", lst);
+            return HelperSing.Instance.ActualizarDB("SP_UPDATE_CLIENTE", lst);
         }
 
         public DataTable Get(string sp)
         {
             return HelperSing.Instance.ConsultarDB(sp);
+        }
+
+        public bool UpdatePelicula(Pelicula peli)
+        {
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@id_pelicula", peli.Id_pelicula));
+            lst.Add(new Parametro("@titulo", peli.Titulo));
+            lst.Add(new Parametro("@sinopsis", peli.Sinopsis));
+            lst.Add(new Parametro("@fec_estreno", peli.FechaEstreno));
+            lst.Add(new Parametro("@elenco", peli.Elenco));
+            lst.Add(new Parametro("@duracion", peli.Duracion));
+            lst.Add(new Parametro("@calificacion", peli.Calificacion.IdCalif));
+            lst.Add(new Parametro("@apta_todo_publico", peli.AptoTodoPublico));
+            lst.Add(new Parametro("@idioma", peli.Idioma));
+            lst.Add(new Parametro("@subtitulo", peli.Subtitulo));
+            lst.Add(new Parametro("@origen", peli.Origen.IdOrigen));
+            lst.Add(new Parametro("@genero", peli.Genero.Id_genero));
+
+            return HelperSing.Instance.ActualizarDB("SP_UPDATE_PELICULA", lst);
+        }
+
+        public bool DeletePelicula(int Id)
+        {
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@id_pelicula", Id));
+
+            return HelperSing.Instance.ActualizarDB("SP_DELETE_PELICULA", lst);
+        }
+
+        public bool UpdateFuncion(Funcion funcion)
+        {           
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@id_funcion", funcion.IdFuncion));
+            lst.Add(new Parametro("@fecha", funcion.Fecha));
+            lst.Add(new Parametro("@hora_inicio", funcion.HoraInicio));
+            lst.Add(new Parametro("@precio", funcion.Precio));
+            lst.Add(new Parametro("@id_peli", funcion.Pelicula.Id_pelicula));
+            lst.Add(new Parametro("@id_sala", funcion.Sala.IdSala));
+
+            return HelperSing.Instance.ActualizarDB("SP_UPDATE_FUNCION", lst);
         }
     }
 }

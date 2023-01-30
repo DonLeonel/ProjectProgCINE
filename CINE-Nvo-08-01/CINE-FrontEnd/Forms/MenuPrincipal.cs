@@ -1,5 +1,6 @@
 using CINE_BackEnd.Services;
 using CINE_BackEnd.Services.Interfaz;
+using CINE_FrontEnd.Forms;
 using System.Runtime.InteropServices;
 
 namespace CINE_FrontEnd
@@ -37,7 +38,7 @@ namespace CINE_FrontEnd
         {
             if (MessageBox.Show("SALIENDO, Esta seguro que quiere abandonar la App?", "SALIENDO", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2).Equals(DialogResult.Yes))
             {
-                this.Close();
+                Application.Exit();
             }
         }
 
@@ -88,6 +89,16 @@ namespace CINE_FrontEnd
         private void btnPeliculas_Click(object sender, EventArgs e)
         {
             AbrirFormInPanel(new FormPeliculas(this.Service));
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new FormClientes(this.Service));
+        }
+
+        private void btnFunciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new FormFunciones(this.Service));
         }
     }
 }

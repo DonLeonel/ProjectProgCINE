@@ -79,5 +79,20 @@ namespace CINE_BackEnd.Services.Imp
         {
             return oDAO.Get(sp);
         }
+
+        public bool UpdatePelicula(Pelicula pelicula)
+        {
+            return oDAO.UpdatePelicula(pelicula);
+        }
+
+        public bool DeletePelicula(int Id)
+        {
+            return oDAO.DeletePelicula(Id);
+        }
+
+        public bool UpdateFuncion(Funcion funcion)
+        {
+            return oDAO.UpdateFuncion(funcion);
+        }
     }
 }

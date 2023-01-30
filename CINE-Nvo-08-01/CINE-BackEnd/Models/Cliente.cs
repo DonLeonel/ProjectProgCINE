@@ -12,20 +12,14 @@ namespace CINE_BackEnd.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime FechaNac { get; set; }
-
-        public Cliente(int idCliente, string nombre, string apellido, DateTime fechaNac)
-        {
-            IdCliente = idCliente;
-            Nombre = nombre;
-            Apellido = apellido;
-            FechaNac = fechaNac;
-
-        }
+        public string Calle { get; set; }
+        public int Altura { get; set; }
+        public string Telefono { get; set; }
+        public string Mail { get; set; }
 
         public Cliente()
         {
-                
+
         }
-   
     }
 }

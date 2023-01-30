@@ -27,3 +27,7 @@ C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\bin\Debug\net6.0
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\bin\Debug\net6.0-windows\CINE-BackEnd.dll
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\bin\Debug\net6.0-windows\CINE-BackEnd.pdb
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE-FrontEnd.csproj.CopyComplete
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormAltaCliente.resources
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormClientes.resources
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormAltaFuncion.resources
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormFunciones.resources

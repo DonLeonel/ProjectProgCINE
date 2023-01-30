@@ -22,5 +22,10 @@ namespace CINE_BackEnd.Models
             Id_genero = 0;
             Descripcion = string.Empty;
         }
+
+        public override string ToString()
+        {
+            return Descripcion.ToString();
+        }
     }
 }
