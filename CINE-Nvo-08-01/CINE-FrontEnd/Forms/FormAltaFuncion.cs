@@ -46,6 +46,7 @@ namespace CINE_FrontEnd.Forms
             }
             CargarCombo(cboPeliculas, "SP_GET_PELICULAS");
             CargarCombo(cboSala, "SP_GET_SALAS");
+            dtpFechayHora.Value = DateTime.Now;
         }
 
         private void CargarCombo(ComboBox combo, string SP)

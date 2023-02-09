@@ -11,6 +11,7 @@ namespace CINE_BackEnd.Models
         public int IdCliente { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+        public string NombCompleto { get { return Nombre + " " + Apellido; } }
         public DateTime FechaNac { get; set; }
         public string Calle { get; set; }
         public int Altura { get; set; }

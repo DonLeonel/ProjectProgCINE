@@ -59,6 +59,7 @@
             this.btnBorrar.TabIndex = 19;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnEditar
             // 
@@ -70,6 +71,7 @@
             this.btnEditar.TabIndex = 18;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNvaFuncion
             // 
@@ -93,6 +95,7 @@
             this.dgvFunciones.RowTemplate.Height = 25;
             this.dgvFunciones.Size = new System.Drawing.Size(677, 304);
             this.dgvFunciones.TabIndex = 16;
+            this.dgvFunciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFunciones_CellContentClick);
             // 
             // FormFunciones
             // 

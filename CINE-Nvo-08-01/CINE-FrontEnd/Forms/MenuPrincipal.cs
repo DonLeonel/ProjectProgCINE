@@ -100,5 +100,10 @@ namespace CINE_FrontEnd
         {
             AbrirFormInPanel(new FormFunciones(this.Service));
         }
+
+        private void btnReservas_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new FormReservas(this.Service));
+        }
     }
 }

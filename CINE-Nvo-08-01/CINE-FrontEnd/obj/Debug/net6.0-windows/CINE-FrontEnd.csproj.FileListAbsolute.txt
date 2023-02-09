@@ -31,3 +31,6 @@ C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormClientes.resources
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormAltaFuncion.resources
 C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormFunciones.resources
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormAltaReserva.resources
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormReservas.resources
+C:\ProyectosVS.2022\CINE-Nvo-08-01\CINE-Nvo-08-01\CINE-FrontEnd\obj\Debug\net6.0-windows\CINE_FrontEnd.Forms.FormDetalleReserva.resources

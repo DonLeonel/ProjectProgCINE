@@ -94,5 +94,20 @@ namespace CINE_BackEnd.Services.Imp
         {
             return oDAO.UpdateFuncion(funcion);
         }
+
+        public List<Funcion> GetFuncionXNombre(string NomFunc)
+        {
+            return oDAO.GetFuncionXNombre(NomFunc);
+        }
+
+        public List<Funcion> GetFuncionReserva()
+        {
+            return oDAO.GetFuncionReserva();
+        }
+
+        public List<DetalleReserva> GetDetalleReservas(int IdReser)
+        {
+            return oDAO.GetDetalleReservas(IdReser);
+        }
     }
 }

@@ -133,8 +133,7 @@ namespace CINE_BackEnd.Data
                 cnn.Open();
                 t = cnn.BeginTransaction();
                 SqlCommand CmdM = new SqlCommand(SPM, cnn, t);
-                CmdM.CommandType = CommandType.StoredProcedure;
-                //CmdM.Parameters.AddWithValue("@id_reserva", reserva.Id_reserva); identity???
+                CmdM.CommandType = CommandType.StoredProcedure;                
                 CmdM.Parameters.AddWithValue("@fec_reserva", reserva.FechaReserva);               
                 CmdM.Parameters.AddWithValue("@id_cliente", reserva.Cliente.IdCliente);               
 
@@ -148,8 +147,7 @@ namespace CINE_BackEnd.Data
                 SqlCommand CmdD = new SqlCommand(SPD, cnn, t);
                 CmdD.CommandType = CommandType.StoredProcedure;
                 foreach (DetalleReserva det in reserva.Ldetalle)
-                {
-                    //CmdD.Parameters.AddWithValue("@id_detalle_reserva", det.IdDetalleReserva); identity???
+                {                    
                     CmdD.Parameters.AddWithValue("@id_reserva", IdReserva);
                     CmdD.Parameters.AddWithValue("@id_funcion", det.Funcion.IdFuncion);
                     CmdD.Parameters.AddWithValue("@cantidad", det.Cantidad);

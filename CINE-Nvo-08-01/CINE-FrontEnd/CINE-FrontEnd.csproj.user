@@ -10,13 +10,22 @@
     <Compile Update="Forms\FormAltaPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\FormAltaReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\FormClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormDetalleReserva.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FormFunciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FormPeliculas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormReservas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MenuPrincipal.cs">

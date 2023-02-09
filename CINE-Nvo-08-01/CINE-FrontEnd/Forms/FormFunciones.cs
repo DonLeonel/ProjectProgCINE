@@ -62,5 +62,20 @@ namespace CINE_FrontEnd.Forms
             OcultarComponentes();
             AbrirFormInPanel(new FormAltaFuncion(this.Service, lFunciones));
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvFunciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

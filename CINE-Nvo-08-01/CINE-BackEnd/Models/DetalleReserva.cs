@@ -8,7 +8,8 @@ namespace CINE_BackEnd.Models
 {
     public class DetalleReserva
     {
-        public int IdDetalleReserva { get; set; }        
+        public int IdDetalleReserva { get; set; } 
+        public int IdReserva { get; set; }
         public Funcion Funcion { get; set; }
         public int Cantidad { get; set; }
 

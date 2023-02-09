@@ -100,7 +100,23 @@ namespace CINE_BackEnd.Data.Imp
 
         public List<Reserva> GetReservas()
         {
-            throw new NotImplementedException();
+            List<Reserva> lst = new List<Reserva>();
+            var dt = HelperSing.Instance.ConsultarDB("SP_GET_RESERVAS");
+            foreach (DataRow dr in dt.Rows)
+            {
+                Cliente cli = new Cliente();
+                cli.IdCliente = (int)dr[1];
+                cli.Nombre = (string)dr[2];
+                cli.Apellido = (string)dr[3];
+
+                Reserva reserva = new Reserva();
+                reserva.Id_reserva = (int)dr[0];
+                reserva.FechaReserva = (DateTime)dr[4];
+                reserva.Cliente = cli;
+
+                lst.Add(reserva);
+            }
+            return lst;
         }
 
         public List<Reserva> GetReservaXFecha(DateTime desde, DateTime hasta)
@@ -203,6 +219,97 @@ namespace CINE_BackEnd.Data.Imp
             lst.Add(new Parametro("@id_sala", funcion.Sala.IdSala));
 
             return HelperSing.Instance.ActualizarDB("SP_UPDATE_FUNCION", lst);
+        }
+
+        public List<Funcion> GetFuncionXNombre(string NomFunc)
+        {
+            
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@nombre", NomFunc));
+
+            List<Funcion> lfunc = new List<Funcion>();
+            DataTable dt = HelperSing.Instance.ConsultarDBP("SP_GET_FUNCION_X_NOMBRE", lst);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Pelicula p = new Pelicula();
+                p.Id_pelicula = (int)dr[1];
+                p.Titulo = (string)dr[6];              
+
+                Sala s = new Sala();
+                s.IdSala = (int)dr[2];
+                s.Tipo = (string)dr[7];
+
+                Funcion f = new Funcion();
+                f.IdFuncion = (int)dr[0];
+                f.Fecha = (DateTime)dr[3];
+                f.HoraInicio = (DateTime)dr[4];
+                f.Precio = (double)dr[5];
+                f.Pelicula = p;
+                f.Sala = s;
+                f.Agotado = (bool)dr[8];
+
+                lfunc.Add(f);
+            }
+            return lfunc;
+        }
+
+        public List<Funcion> GetFuncionReserva()
+        {
+            List<Funcion> lfunc = new List<Funcion>();
+            DataTable dt = HelperSing.Instance.ConsultarDB("SP_GET_FUNCION_RESERVA");
+            foreach (DataRow dr in dt.Rows)
+            {
+                Pelicula p = new Pelicula();
+                p.Id_pelicula = (int)dr[1];
+                p.Titulo = (string)dr[6];
+                
+                Sala s = new Sala();
+                s.IdSala = (int)dr[2];
+                s.Tipo = (string)dr[7];
+
+                Funcion f = new Funcion();
+                f.IdFuncion = (int)dr[0];
+                f.Fecha = (DateTime)dr[3];
+                f.HoraInicio = (DateTime)dr[4];
+                f.Precio = (double)dr[5];
+                f.Pelicula = p;
+                f.Sala = s;
+                f.Agotado = (bool)dr[8];
+
+                lfunc.Add(f);
+            }
+            return lfunc;
+        }
+
+        public List<DetalleReserva> GetDetalleReservas(int IdReser)
+        {
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@id_reserva", IdReser));
+
+            var dt = HelperSing.Instance.ConsultarDBP("SP_GET_DETALLE_RESERVA",lst);
+            List<DetalleReserva> lstD = new List<DetalleReserva>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                Pelicula p = new Pelicula();
+                p.Titulo = (string)dr[0];
+
+                Sala s = new Sala();
+                s.IdSala = (int)dr[4];
+                s.Tipo = (string)dr[5];
+
+                Funcion f = new Funcion();
+                f.Fecha = (DateTime)dr[1];
+                f.HoraInicio = (DateTime)dr[2];
+                f.Precio = (double)dr[3];
+                f.Pelicula = p;
+                f.Sala = s;
+
+                DetalleReserva det = new DetalleReserva();
+                det.Funcion = f; 
+                
+                lstD.Add(det);
+            }
+            return lstD;
         }
     }
 }
