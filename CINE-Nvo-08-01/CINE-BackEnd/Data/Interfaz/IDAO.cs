@@ -16,6 +16,7 @@ namespace CINE_BackEnd.Data.Interfaz
         List<Reserva> GetReservas();
         List<Pelicula> GetPeliculas();
         List<DetalleReserva> GetDetalleReservas(int IdReser);
+        List<Reserva> GetReservaXCliente(string NombClient);
         List<Funcion> GetFuncionXNombre(string NomFunc);
         List<Funcion> GetFuncionReserva();
         List<Reserva> GetReservaXFecha(DateTime desde, DateTime hasta);

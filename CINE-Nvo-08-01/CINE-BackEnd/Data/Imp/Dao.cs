@@ -121,7 +121,27 @@ namespace CINE_BackEnd.Data.Imp
 
         public List<Reserva> GetReservaXFecha(DateTime desde, DateTime hasta)
         {
-            throw new NotImplementedException();
+            List<Parametro> p = new List<Parametro>();
+            p.Add(new Parametro("@desde", desde));
+            p.Add(new Parametro("@hasta", hasta));
+
+            List<Reserva> lst = new List<Reserva>();
+            var dt = HelperSing.Instance.ConsultarDBP("SP_GET_RESERVAS_X_FECHA", p);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Cliente cli = new Cliente();
+                cli.IdCliente = (int)dr[1];
+                cli.Nombre = (string)dr[2];
+                cli.Apellido = (string)dr[3];
+
+                Reserva reserva = new Reserva();
+                reserva.Id_reserva = (int)dr[0];
+                reserva.FechaReserva = (DateTime)dr[4];
+                reserva.Cliente = cli;
+
+                lst.Add(reserva);
+            }
+            return lst;
         }
 
         public bool InsertCliente(Cliente cliente)
@@ -310,6 +330,30 @@ namespace CINE_BackEnd.Data.Imp
                 lstD.Add(det);
             }
             return lstD;
+        }
+
+        public List<Reserva> GetReservaXCliente(string NombClient)
+        {
+            List<Parametro> p = new List<Parametro>();
+            p.Add(new Parametro("@nombre", NombClient));
+
+            List<Reserva> lst = new List<Reserva>();
+            var dt = HelperSing.Instance.ConsultarDBP("SP_GET_RESERVAS_X_CLIENTE", p);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Cliente cli = new Cliente();
+                cli.IdCliente = (int)dr[1];
+                cli.Nombre = (string)dr[2];
+                cli.Apellido = (string)dr[3];
+
+                Reserva reserva = new Reserva();
+                reserva.Id_reserva = (int)dr[0];
+                reserva.FechaReserva = (DateTime)dr[4];
+                reserva.Cliente = cli;
+
+                lst.Add(reserva);
+            }
+            return lst;
         }
     }
 }

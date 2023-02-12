@@ -70,9 +70,41 @@ namespace CINE_FrontEnd.Forms
         }
 
         private void dgvReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {            
             if (dgvReservas.CurrentCell.ColumnIndex == 3)
-            { new FormDetalleReserva(this.Service, (int)dgvReservas.CurrentRow.Cells[0].Value).ShowDialog(); }
+            { 
+               new FormDetalleReserva(this.Service, (int)dgvReservas.CurrentRow.Cells[0].Value).ShowDialog(); 
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtNombre.Text))
+            {
+                lReservas = Service.GetReservaXCliente(txtNombre.Text);
+                dgvReservas.Rows.Clear();
+                foreach (Reserva res in lReservas)
+                {
+                    dgvReservas.Rows.Add(new object[]
+                    {
+                        res.Id_reserva, res.Cliente.NombCompleto, res.FechaReserva
+                    });                    
+                }
+            }
+
+            if (chbBuscarFecha.Checked)
+            {
+
+                lReservas = Service.GetReservaXFecha(dtpDesde.Value, dtpHasta.Value);
+                dgvReservas.Rows.Clear();
+                foreach (Reserva res in lReservas)
+                {
+                    dgvReservas.Rows.Add(new object[]
+                    {
+                        res.Id_reserva, res.Cliente.NombCompleto, res.FechaReserva
+                    });
+                }
+            }
         }
     }
 }

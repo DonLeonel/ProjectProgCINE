@@ -109,5 +109,10 @@ namespace CINE_BackEnd.Services.Imp
         {
             return oDAO.GetDetalleReservas(IdReser);
         }
+
+        public List<Reserva> GetReservaXCliente(string NombClient)
+        {
+            return oDAO.GetReservaXCliente(NombClient);
+        }
     }
 }

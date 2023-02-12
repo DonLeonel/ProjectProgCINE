@@ -15,6 +15,7 @@ namespace CINE_BackEnd.Services.Interfaz
         List<Funcion> GetFunciones();
         List<Reserva> GetReservas();
         List<DetalleReserva> GetDetalleReservas(int IdReser);
+        List<Reserva> GetReservaXCliente(string NombClient);
         List<Pelicula> GetPeliculas();
         List<Funcion> GetFuncionXNombre(string NomFunc);
         List<Funcion> GetFuncionReserva();

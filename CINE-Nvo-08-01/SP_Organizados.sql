@@ -1,3 +1,5 @@
+USE [CineTUP_Oficial]
+
 create Proc [dbo].[SP_GET_CLIENTES]
 as
 select id_cliente, nombre, apellido, fec_nac, calle, altura, telefono, mail
@@ -170,6 +172,25 @@ as
 update Peliculas set activa = 0
 where id_pelicula = @id_pelicula
 select * from Peliculas
+
+--------------------------------------------------------------------------------
+
+create proc SP_GET_RESERVAS_X_CLIENTE
+@nombre varchar (50)
+as
+select r.id_reserva, r.id_cliente, c.nombre, c.apellido, fec_reserva 
+from reservas r join clientes c on r.id_cliente=c.id_cliente
+where c.nombre like '%'+@nombre+'%'
+
+----------------------------------------------------------------------------------------
+
+create proc SP_GET_RESERVAS_X_FECHA
+@desde datetime,
+@hasta datetime
+as
+select r.id_reserva, r.id_cliente, c.nombre, c.apellido, fec_reserva 
+from reservas r join clientes c on r.id_cliente=c.id_cliente
+where r.fec_reserva between @desde and @hasta
 
 
 --Insert Necesarios 
